@@ -1,3 +1,4 @@
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <html>
     <style type='text/css'>
 
@@ -9,20 +10,90 @@
             position: relative;
             height: 100vh;
             width: 100vw;
-            /* adicionando imagem de fundo */
             background: url('https://animecorner.me/wp-content/uploads/2022/05/spy-x-fam.png?ezimgfmt=rs%3Adevice%2Frscb21-1');
             background-size: cover;
         }
+
+        .button {
+            display: inline-block;
+            padding: 15px 25px;
+            font-size: 24px;
+            cursor: pointer;
+            text-align: center;	
+            text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+          }
+          
+          .button:hover {background-color: #3e8e41}
+          
+          .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
+          }
     </style>
     <head>
     <title>Motivos</title>
     <meta charset="utf-8">
     <div id="container-imagem">
-        <div>
-            <a href="#" class="dropdown-toggle">
-                <img src="/home/imagens/80266ce1-3a03-4f1b-89f5-f4900891350a.jpeg" width="35" height="35">
-            </a>
+        <div style="text-align:center;">
+            <li class="dropdown-toggle">
+                <img style="border-radius:200px;text-align:center; margin-top:50px" src="/home/imagens/fundo.jpeg" width="245" height="430">
+            </li>
+        </div>
+        <br>
+        <div style="text-align:center;">
+            <button onClick="mostraMotivo()"class="button">Clique</button>
         </div>
     </div>
 </head>
+<script>
+        function mostraMotivo(){
+
+        var imagem = [6];
+
+        imagem[0] = '/home/imagens/1.jpeg'
+        imagem[1] = '/home/imagens/2.jpeg'
+        imagem[2] = '/home/imagens/3.jpeg'
+        imagem[3] = '/home/imagens/4.jpeg'
+        imagem[4] = '/home/imagens/5.jpeg'
+        imagem[5] = '/home/imagens/6.jpeg'
+
+        var mensagem = [];
+
+        mensagem[0] = 'Seu Sorriso';
+        mensagem[1] = 'Sua Personalidade';
+        mensagem[2] = 'Seus Talentos';
+        mensagem[3] = 'Você por Completo';
+        mensagem[4] = 'Sua Voz';
+        mensagem[5] = 'Seus Olhos';
+        mensagem[6] = 'Seu Modo de Ser';
+        mensagem[7] = 'Seu Cabelo';
+        mensagem[8] = 'GOSTOSA FODASE';
+        mensagem[9] = 'Como me Trata';
+        mensagem[10] = 'Sua Fofura';
+        mensagem[11] = 'O Como me Faz Feliz';
+
+        var i = getRandomInt(0, 5)
+        var j = getRandomInt(0, 11)
+
+        Swal.fire({ 
+            title: 'Um motivo para te Amar',
+            text: mensagem[j],
+            imageUrl: imagem[i],
+            imageWidth: 300,
+            imageHeight: 400,
+          })
+    }
+    function getRandomInt(min, max) {
+        min = Math.ceil(min);
+        max = Math.floor(max);
+        return Math.floor(Math.random() * (max - min)) + min;
+      }
+</script>
 </html>
